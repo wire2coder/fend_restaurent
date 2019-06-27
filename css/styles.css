@@ -131,6 +131,11 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
@@ -273,3 +278,5 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+/* TODO: add 'media query' for the restaurant.html page */

@@ -47,7 +47,7 @@ self.addEventListener('activate', function(event) {
     event.waitUntil(
         caches.keys().then(function (cashNames1) {
             return Promise.all(
-                cashName.filter( function(cashname) { // prototype.filter(), create a new array
+                cashNames1.filter( function(cashname) { // prototype.filter(), create a new array
                     return cashname.startsWith('my-') && cashname != 'my-cash-1';
                 })
                 .map( function(cashname) { // prototype.map(), create a new array

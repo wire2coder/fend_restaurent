@@ -54,7 +54,12 @@ nav {
   height: 80px;
   background-color: #252831;
   text-align:center;
+  /* using 'flexbox' for responsive design */
+  display: flex;
+  align-items: center;
+
 }
+
 nav h1 {
   margin: auto;
 }
@@ -109,6 +114,10 @@ nav h1 a {
   height: 50px;
   background-color: #3397DB;
   align-items: center;
+  /* adding 'responsive' design code */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .filter-options h2 {
   color: white;
@@ -131,17 +140,17 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+  /* adding 'responsive' design with flexbox */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
@@ -152,14 +161,18 @@ nav h1 a {
   text-align: left;
   width: 270px;
 }
+
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
-  max-width: 100%;
   min-height: 248px;
+
+  /* make images fit inside the container */
+  max-width: 100%;
   min-width: 100%;
 }
+
 #restaurants-list li h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
@@ -187,13 +200,19 @@ nav h1 a {
   text-transform: uppercase;
 }
 
-/* ====================== Restaurant Details ====================== */
-.inside header {
-  position: fixed;
-  top: 0;
+/* ====================== Restaurant Details, restaurant.html====================== */
+
+.inside {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
   width: 100%;
-  z-index: 1000;
 }
+
+.inside header {
+  width: 100%;
+}
+
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 87%;
@@ -222,9 +241,11 @@ nav h1 a {
   text-transform: uppercase;
   line-height: 1.1;
 }
+
 #restaurant-img {
 	width: 90%;
 }
+
 #restaurant-address {
   font-size: 12pt;
   margin: 10px 0px;
@@ -241,12 +262,15 @@ nav h1 a {
   text-transform: uppercase;
 	width: 90%;
 }
+
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
   width: 50%;
 }
+
+
 #reviews-container {
   padding: 30px 40px 80px;
 }
@@ -263,20 +287,87 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
-  width: 85%;
 }
+
 #reviews-list li p {
   margin: 0 0 10px;
 }
-#restaurant-hours td {
-  color: #666;
+
+/* 1st paragraph */
+#reviews-list li>p:nth-child(1) {
+  width: 50%;
+  display: inline-block;
 }
 
-/* TODO: add 'media query' for the restaurant.html page */
+/* 2nd paragraph */
+#reviews-list li>p:nth-child(2) {
+  width: 50%;
+  display: inline-block;
+}
+
+
+
+/* ====================== Media Query, index.html====================== */
+
+
+/* ====================== Media Query, restaurant.html====================== */
+
+@media (min-width: 930px) {
+ 
+  #restaurants-list li {
+    max-width: 30%;
+  }
+  #restaurants-list p {
+    width: 66%;
+  }  
+  #restaurants-list li h1 {
+    height: 41px;
+  }
+
+  .inside header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .inside #map-container {
+    background: blue none repeat scroll 0 0;
+    height: 88%;
+    position: fixed;
+    right: 0;
+    top: 80px;
+    width: 50%;
+  }
+  #breadcrumb {
+    width: calc(50% - 80px);
+  }
+  #restaurant-img {
+    width: 90%;
+  }
+  #restaurant-container {
+    width: 45%;
+    padding: 140px 40px 30px;
+  }
+  #reviews-container {
+    width: 45%;
+    padding: 40px 30px;
+  }
+  #restaurant-cuisine {
+    width: 90%;
+  }
+  #reviews-list li {
+    width: 85%;
+  }
+  .inside #footer {
+    bottom: 0;
+    position: absolute;
+    width: 45%;
+  }
+}

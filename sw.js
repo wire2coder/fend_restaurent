@@ -59,14 +59,23 @@ self.addEventListener('activate', function(event) {
 });
 
 
-// June, 27, 2019
+// June 27 2019
+// July 22 2019
 self.addEventListener('fetch', function (event) {
   
+    // >> searching stuff inside the 'cache'
+    // When available in the browser, the site uses a service worker to cache responses to requests for site assets. Visited pages are rendered when there is no network access.
+
     event.respondWith(
-        caches.match( event.request ) // >> searching stuff inside the 'cache'
-            .then( function(response) {
-                return response || fetch(event.request)
+        caches.open('my-cash-1').then( function(cache) {
+            return cache.match(event.request).then(function (response) {
+                return response || fetch(event.request).then(function(response) {
+                    cache.put(event.request, response.clone());
+                    return response;
+                });
+            });
         })
-    )
+    );
+
 });
   

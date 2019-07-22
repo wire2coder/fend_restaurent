@@ -73,7 +73,7 @@ nav h1 a {
 #breadcrumb {
     padding: 10px 40px 16px;
     list-style: none;
-    background-color: #eee;
+    /* background-color: #eee; */
     font-size: 17px;
     margin: 0;
     width: calc(50% - 80px);
@@ -320,6 +320,11 @@ nav h1 a {
 
 /* when the screen res is smaller than 929px */
 @media (max-width: 929px) {
+
+  /* breadcrumb is for navigation links */
+  #breadcrumb {
+    width: 100%;
+  }
 
   /* restaurant info section on top of reviews */
   #restaurant-container{

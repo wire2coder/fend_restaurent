@@ -110,7 +110,8 @@ nav h1 a {
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
-  width: 100%;
+  /* submission 2 fixed for horizontal scrolling, remove width */
+  /* width: 100%;  */
   height: 50px;
   background-color: #3397DB;
   align-items: center;
@@ -345,6 +346,23 @@ nav h1 a {
 
 }
 
+/* restaurant.html */
+/* when the screen width is smaller than 360 pixels */
+/* submission 2 fix */
+@media (max-width: 400px) {
+
+  .filter-options {
+    /* no width */
+    height: 100%;
+    background-color: #3397DB;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
+
 
 /* when the screen res is bigger than 930px */
 @media (min-width: 930px) {
@@ -362,4 +380,5 @@ nav h1 a {
     }
 
 }
+
 

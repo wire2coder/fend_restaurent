@@ -160,7 +160,7 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.alt = restaurant.name;  // project requirement, pulling data from JSON file and object
+  image.alt = `${restaurant.name} in ${restaurant.neighborhood}`;  // project requirement, pulling data from JSON file and object
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
